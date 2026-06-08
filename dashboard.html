@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyera Service Bay Dashboard</title>
+</head>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color:darkcyan;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color:darkslateblue;
+        padding: 20px 0;
+    }
+    .header-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+    }
+    .logo {
+        color: white;
+        font-size: 28px;
+        margin: 0;
+        line-height: 1.1;
+    }
+    .logo span {
+        color: lightblue;
+        font-weight: normal;
+        font-size: 18px;
+    }
+    nav a {
+        color:aqua;
+        text-decoration: none;
+        margin-left: 35px;
+        font-size: 18px;
+    }
+    nav a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+    nav a.active {
+        font-weight: bold;
+        background-color: #3498db;
+        border-bottom: 8px solid #2980b9;
+    }
+    .container {
+        max-width: 5000px;
+        margin: auto;
+        padding: 40px 30px;
+    }
+    h2 {
+        color: darkslateblue;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        font-size: 28px;
+    }
+    .cards {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .card {
+        width: 230px;
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        color: white;
+    }
+    .card:hover {
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        transform: translateY(-8px);
+        transition: all 0.3s ease;
+    }
+    .card h3 {
+        margin: 0 0 8px 0;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .card p {
+        font-size: 24px;
+        margin: 0;
+        font-weight: bold;
+    }
+    .card small {
+        font-size: 14px;
+        opacity: 0.9;
+        color:aquamarine;
+    }
+    .blue {
+        background-color: #3498db;
+    }
+    .orange {
+        background-color: #e67e22;
+    }
+    .brown {
+        background-color: #8b4513;
+    }
+    .green {
+        background-color: #27ae60;
+    }
+    .add-btn {
+        display: inline-block;
+        margin: 40px auto;
+        padding: 15px 35px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: 0 8px 20px rgba(139,92,246,0.4);
+    }
+    button:hover {
+        background-color: #2980b9;
+        box-shadow: 0 12px 30px rgba(139,92,246,0.6);
+        transform: translateY(-4px);
+        transition: all 0.3s ease;
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 8px;
+    }
+    th {
+        text-align: left;
+        padding: 10px 15px;
+        background-color: #3498db;
+        font-size: 18px;
+    }
+    td {
+        padding: 15px;
+        background-color: rgba(255,255,255,0.9);
+        color: #2b2b4a;
+        border-radius: 8px;
+        border-spacing: 0 8px;
+    }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    #table-btn {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 10px;
+    }
+    .status {
+        padding: 5px 12px;
+        border-radius: 12px;
+        color:crimson;
+        font-size: 14px;
+    }
+    .completed {
+        background-color: #27ae60;
+        color: white;
+    }
+    .in-progress {
+        background-color: #e67e22;
+        color: white;
+    }
+    .pending {
+        background-color:red;
+        color: white;
+    }
+    footer {
+        background-color:darkslateblue;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 40px;
+    }
+</style>
+<body>
+    <header>
+    <div class="header-container">
+            <h1 class="logo">Oyera<br/><span>Auto</span></h1>
+            <nav>
+                <a href="#">Dashboard</a>
+                <a href="#">Inventory</a>
+                <a href="#">Customers</a>
+            </nav>
+        </div>
+        
+    </header>
+
+    <div class="container">
+        <h2>Service Bay Overview</h2>
+
+        <!-- Dashboard Cards -->
+        <div class="cards">
+            <div class="card blue">
+                <h3>🚗Cars Served</h3>
+                <p>24</p>
+                <small>3 in progress, 6 pending</small>   
+            </div>
+            <div class="card orange">
+                <h3>👨‍🔧No of Technicians</h3>
+                <p>9</p>
+                <small>5 Available</small>
+            </div>
+            <div class="card brown">
+                <h3>📦Inventory in stock</h3>
+                <p>150</p>
+                <small>oil, filters,tyres etc.</small>
+            </div>
+            <div class="card green">
+                <h3>💰TotalRevenue</h3>
+                <p>UGX 9,200,000</p>
+                <small>Last 30 days</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Service Button -->
+    <button class="add-btn">Add New Service</button>
+
+    <!-- Recent Services Table -->
+    <h2>Recent Services</h2>
+    <table>
+        <tr>
+            <th>Customer</th>
+            <th>Car Plate</th>
+            <th>Service Type</th>
+            <th>Total Cost</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Jonathan Leone</td>
+            <td>UBJ 123A</td>
+            <td>Oil Change</td>
+            <td>UGX 200,000</td>
+            <td><span class="status completed">Completed</span></td>
+        </tr>
+        <tr>
+            <td>Shatrah Ddamulira</td>
+            <td>UBD 456B</td>
+            <td>Tire Replacement</td>
+            <td>UGX 500,000</td>
+            <td><span class="status in-progress">In Progress</span></td>
+        </tr>
+        <tr>
+            <td>Peter K</td>
+            <td>UAZ 789C</td>
+            <td>Brake Service</td>
+            <td>UGX 300,000</td>
+            <td><span class="status pending">Pending</span></td>
+        </tr>
+            <td>Isabella Joy</td>
+            <td>UAT 321D</td>
+            <td>Battery Replacement</td>
+            <td>UGX 400,000</td>
+            <td><span class="status completed">Completed</span></td>
+        </tr>
+         <tr>
+            <td>Esther Apolot</td>
+            <td>UA 654AB</td>
+            <td>Engine Tune-Up</td>
+            <td>UGX 600,000</td>
+            <td><span class="status in-progress">In Progress</span></td>
+    </table>
+
+    <footer>
+    <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
+    </footer>
+    </div>
+</body>
+</html>
