@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oyera Service Bay Dashboard</title>
-</head>
-<style>
+    <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color:darkcyan;
+        background-image: url(https://www.autoblog.com/.image/NzowMDAwMDAwMDAwOTA4MzA4/image.jpg?profile=w828&ar=4-3);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        background-repeat: no-repeat;
         margin: 0;
         padding: 0;
     }
     header {
-        background-color:darkslateblue;
+        background-color:cadetblue;
         padding: 20px 0;
+        margin-left: 260px; /* push header right of sidebar */
     }
     .header-container {
-        max-width: 1000px;
+        max-width: 1200px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -35,25 +40,98 @@
         font-weight: normal;
         font-size: 18px;
     }
-    nav a {
-        color:aqua;
+    
+    :root {
+        --sidebar-bg:var(--sidebar-active-bg);
+        --sidebar-text: #64748b;
+        --sidebar-active-bg: #f0fdf4;
+        --sidebar-active-text: #16a34a;
+        --sidebar-border:var(--sidebar-active-bg)
+        --sidebar-section: #94a3b8;
+    }
+
+    .sidebar {
+        width: 260px;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: var(--sidebar-bg);
+        border-right: 3px solid var(--sidebar-border);
+        padding: 1.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        z-index: 1000;
+    }
+
+    .sidebar-brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .sidebar-brand .logo {
+        color: var(--sidebar-active-text);
+        font-size: 1.8rem;
+    }
+
+    .sidebar-section {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--sidebar-section);
+        letter-spacing: 1px;
+        margin: 1.5rem 0 0.5rem 0.5rem;
+    }
+
+    .sidebar-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0.75rem 1rem;
+        color: var(--sidebar-text);
         text-decoration: none;
-        margin-left: 35px;
-        font-size: 18px;
+        border-radius: 10px;
+        font-weight: 500;
+        transition: all 0.2s;
+        margin-bottom: 4px;
     }
-    nav a:hover {
+
+    .sidebar .nav-link:hover {
+        background:blanchedalmond;
+        color: #0f172a;
+    }
+
+    .sidebar .nav-link.active {
+        background: var(--sidebar-active-bg);
+        color: var(--sidebar-active-text);
+        font-weight: 600;
+    }
+
+    .sidebar .badge {
+        margin-left: auto;
+        background: #16a34a;
         color: white;
-        text-decoration: underline;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-weight: 600;
     }
-    nav a.active {
-        font-weight: bold;
-        background-color: #3498db;
-        border-bottom: 8px solid #2980b9;
-    }
+
     .container {
-        max-width: 5000px;
-        margin: auto;
+        max-width: 1200px;
+        margin: 0;
         padding: 40px 30px;
+        margin-left: 280px; /* 260px sidebar + 20px gap */
     }
     h2 {
         color: darkslateblue;
@@ -73,11 +151,11 @@
         padding: 25px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         color: white;
+        transition: all 0.3s ease;
     }
     .card:hover {
         box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         transform: translateY(-8px);
-        transition: all 0.3s ease;
     }
     .card h3 {
         margin: 0 0 8px 0;
@@ -92,23 +170,16 @@
     .card small {
         font-size: 14px;
         opacity: 0.9;
-        color:aquamarine;
+        color: aquamarine;
     }
-    .blue {
-        background-color: #3498db;
-    }
-    .orange {
-        background-color: #e67e22;
-    }
-    .brown {
-        background-color: #8b4513;
-    }
-    .green {
-        background-color: #27ae60;
-    }
+    .blue { background-color: #3498db; }
+    .orange { background-color: #e67e22; }
+    .brown { background-color: #8b4513; }
+    .green { background-color: #27ae60; }
+
     .add-btn {
         display: inline-block;
-        margin: 40px auto;
+        margin: 40px 0;
         padding: 15px 35px;
         background-color: #3498db;
         color: white;
@@ -116,13 +187,13 @@
         border-radius: 12px;
         cursor: pointer;
         font-size: 18px;
-        box-shadow: 0 8px 20px rgba(139,92,246,0.4);
-    }
-    button:hover {
-        background-color: #2980b9;
-        box-shadow: 0 12px 30px rgba(139,92,246,0.6);
-        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
         transition: all 0.3s ease;
+    }
+    .add-btn:hover {
+        background-color: #2980b9;
+        box-shadow: 0 12px 30px rgba(52, 152, 219, 0.6);
+        transform: translateY(-4px);
     }
     table {
         width: 100%;
@@ -131,144 +202,148 @@
     }
     th {
         text-align: left;
-        padding: 10px 15px;
+        padding: 15px;
         background-color: #3498db;
+        color: white;
         font-size: 18px;
+        border-radius: 8px 8px 0 0;
     }
     td {
         padding: 15px;
         background-color: rgba(255,255,255,0.9);
         color: #2b2b4a;
         border-radius: 8px;
-        border-spacing: 0 8px;
     }
-    tr:nth-child(even) {
-        background-color: #dddddd;
+    tr:nth-child(even) td {
+        background-color: #f5f5f5;
     }
 
-    #table-btn {
-        display: flex;
-        justify-content: end;
-        margin-bottom: 10px;
-    }
     .status {
         padding: 5px 12px;
         border-radius: 12px;
-        color:crimson;
         font-size: 14px;
+        font-weight: 600;
     }
-    .completed {
-        background-color: #27ae60;
-        color: white;
-    }
-    .in-progress {
-        background-color: #e67e22;
-        color: white;
-    }
-    .pending {
-        background-color:red;
-        color: white;
-    }
+    .completed { background-color: #27ae60; color: white; }
+    .in-progress { background-color: #e67e22; color: white; }
+    .pending { background-color: crimson; color: white; }
+
     footer {
-        background-color:darkslateblue;
+        background-color: cadetblue;
         color: white;
         text-align: center;
         padding: 15px 0;
         margin-top: 40px;
+        margin-left: 260px; /* align with content */
     }
-</style>
+    </style>
+</head>
 <body>
-    <header>
-    <div class="header-container">
-            <h1 class="logo">Oyera<br/><span>Auto</span></h1>
-            <nav>
-                <a href="#">Dashboard</a>
-                <a href="#">Inventory</a>
-                <a href="#">Customers</a>
-            </nav>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <span class="logo">◎</span> Oyera
         </div>
-        
+
+        <div class="sidebar-section">MENU</div>
+        <ul class="sidebar-nav">
+            <li><a href="#" class="nav-link active">Home<span class="badge">3</span></a></li>
+            <li><a href="#" class="nav-link">Dashboard</a></li>
+            <li><a href="#" class="nav-link">Inventory</a></li>
+            <li><a href="#" class="nav-link">Technicians</a></li>
+            <li><a href="#" class="nav-link">Booking</a></li>
+        </ul>
+
+        <div class="sidebar-section">GENERAL</div>
+        <ul class="sidebar-nav">
+            <li><a href="#" class="nav-link">⚙️ Settings</a></li>
+            <li><a href="#" class="nav-link">❓ Help</a></li>
+            <li><a href="#" class="nav-link">🚪 Logout</a></li>
+        </ul>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Oyera<br/><span>Auto</span></h1>
+        </div>
     </header>
 
     <div class="container">
         <h2>Service Bay Overview</h2>
 
-        <!-- Dashboard Cards -->
         <div class="cards">
             <div class="card blue">
-                <h3>🚗Cars Served</h3>
+                <h3>🚗 Cars Served</h3>
                 <p>24</p>
                 <small>3 in progress, 6 pending</small>   
             </div>
             <div class="card orange">
-                <h3>👨‍🔧No of Technicians</h3>
+                <h3>👨‍🔧 No of Technicians</h3>
                 <p>9</p>
                 <small>5 Available</small>
             </div>
             <div class="card brown">
-                <h3>📦Inventory in stock</h3>
+                <h3>📦 Inventory in stock</h3>
                 <p>150</p>
-                <small>oil, filters,tyres etc.</small>
+                <small>oil, filters, tyres etc.</small>
             </div>
             <div class="card green">
-                <h3>💰TotalRevenue</h3>
+                <h3>💰 Total Revenue</h3>
                 <p>UGX 9,200,000</p>
                 <small>Last 30 days</small>
             </div>
         </div>
+
+        <button class="add-btn">Add New Service</button>
+
+        <h2>Recent Services</h2>
+        <table>
+            <tr>
+                <th>Customer</th>
+                <th>Car Plate</th>
+                <th>Service Type</th>
+                <th>Total Cost</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Jonathan Leone</td>
+                <td>UBJ 123A</td>
+                <td>Oil Change, Engine Tune-Up</td>
+                <td>UGX 800,000</td>
+                <td><span class="status completed">Completed</span></td>
+            </tr>
+            <tr>
+                <td>Shatrah Ddamulira</td>
+                <td>UBD 456B</td>
+                <td>Tire Replacement, Alignment</td>
+                <td>UGX 700,000</td>
+                <td><span class="status in-progress">In Progress</span></td>
+            </tr>
+            <tr>
+                <td>Peter K</td>
+                <td>UAZ 789C</td>
+                <td>Brake Service, Clutch Replacement</td>
+                <td>UGX 600,000</td>
+                <td><span class="status pending">Pending</span></td>
+            </tr>
+            <tr>
+                <td>Isabella Joy</td>
+                <td>UBF 321D</td>
+                <td>Battery Replacement, Battery Installation</td>
+                <td>UGX 900,000</td>
+                <td><span class="status completed">Completed</span></td>
+            </tr>
+            <tr>
+                <td>Esther Apolot</td>
+                <td>UA 654AB</td>
+                <td>Engine Tune-Up, Brake Repair, Oil Change</td>
+                <td>UGX 1,200,000</td>
+                <td><span class="status in-progress">In Progress</span></td>
+            </tr>
+        </table>
     </div>
-
-    <!-- Add New Service Button -->
-    <button class="add-btn">Add New Service</button>
-
-    <!-- Recent Services Table -->
-    <h2>Recent Services</h2>
-    <table>
-        <tr>
-            <th>Customer</th>
-            <th>Car Plate</th>
-            <th>Service Type</th>
-            <th>Total Cost</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>Jonathan Leone</td>
-            <td>UBJ 123A</td>
-            <td>Oil Change, Engine Tune-Up</td>
-            <td>UGX 800,000</td>
-            <td><span class="status completed">Completed</span></td>
-        </tr>
-        <tr>
-            <td>Shatrah Ddamulira</td>
-            <td>UBD 456B</td>
-            <td>Tire Replacement, Alignment</td>
-            <td>UGX 700,000</td>
-            <td><span class="status in-progress">In Progress</span></td>
-        </tr>
-        <tr>
-            <td>Peter K</td>
-            <td>UAZ 789C</td>
-            <td>Brake Service, Clutch Replacement</td>
-            <td>UGX 600,000</td>
-            <td><span class="status pending">Pending</span></td>
-        </tr>
-            <td>Isabella Joy</td>
-            <td>UBF 321D</td>
-            <td>Battery Replacement, Battery Installation</td>
-            <td>UGX 900,000</td>
-            <td><span class="status completed">Completed</span></td>
-        </tr>
-         <tr>
-            <td>Esther Apolot</td>
-            <td>UA 654AB</td>
-            <td>Engine Tune-Up, Brake Repair, oil change</td>
-            <td>UGX 1,200,000</td>
-            <td><span class="status in-progress">In Progress</span></td>
-    </table>
 
     <footer>
-    <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
+        <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
     </footer>
-    </div>
 </body>
 </html>
