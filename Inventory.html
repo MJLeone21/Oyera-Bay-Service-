@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - Oyera Auto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(https://www.autoblog.com/.image/NzowMDAwMDAwMDAwOTA4MzA4/image.jpg?profile=w828&ar=4-3);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0
+        }
+
+        header {
+            background-color: cadetblue;
+            padding: 20px 0;
+            margin-left: 260px
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            margin: 0;
+            line-height: 1.1
+        }
+
+        .logo span {
+            color: lightblue;
+            font-size: 18px
+        }
+
+        :root {
+            --sidebar-bg: #f8fafc;
+            --sidebar-text: #64748b;
+            --sidebar-active-bg: #f0fdfc;
+            --sidebar-active-text: #16a34a;
+            --sidebar-border: #e2e8f0;
+            --sidebar-section: #94a3b8
+        }
+
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: var(--sidebar-bg);
+            border-right: 3px solid var(--sidebar-border);
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000
+        }
+
+        .sidebar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .sidebar-brand .logo {
+            color: var(--sidebar-active-text);
+            font-size: 1.8rem
+        }
+
+        .sidebar-section {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--sidebar-section);
+            letter-spacing: 1px;
+            margin: 1.5rem 0 .5rem .5rem
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: .75rem 1rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all .2s;
+            margin-bottom: 4px
+        }
+
+        .sidebar .nav-link:hover {
+            background: blanchedalmond;
+            color: #0f172a
+        }
+
+        .sidebar .nav-link.active {
+            background: var(--sidebar-active-bg);
+            color: var(--sidebar-active-text);
+            font-weight: 600
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0;
+            padding: 40px 30px;
+            margin-left: 280px
+        }
+
+        h2 {
+            color: darkslateblue;
+            margin-bottom: 20px;
+            font-size: 28px
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px
+        }
+
+        th {
+            text-align: left;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px 8px 0 0
+        }
+
+        td {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, .9);
+            color: #2b2b4a;
+            border-radius: 8px
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f5f5f5
+        }
+
+        .stock-low {
+            color: crimson;
+            font-weight: 600
+        }
+
+        .stock-ok {
+            color: #27ae60;
+            font-weight: 600
+        }
+
+        .add-btn {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 15px 35px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 8px 20px rgba(52, 152, 219, .4);
+            transition: all .3s
+        }
+
+        .add-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-4px)
+        }
+
+        footer {
+            background-color: cadetblue;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            margin-left: 260px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand"><span class="logo">◎</span> Oyera</div>
+        <div class="sidebar-section">MENU</div>
+        <ul class="sidebar-nav">
+            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="inventory.html" class="nav-link active">Inventory</a></li>
+            <li><a href="technicians.html" class="nav-link">Technicians</a></li>
+            <li><a href="booking.html" class="nav-link">Booking</a></li>
+        </ul>
+        <div class="sidebar-section">GENERAL</div>
+        <ul class="sidebar-nav">
+            <li><a href="settings.html" class="nav-link">⚙️ Settings</a></li>
+            <li><a href="help.html" class="nav-link">❓ Help</a></li>
+            <li><a href="logout.html" class="nav-link">🚪 Logout</a></li>
+        </ul>
+    </div>
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Oyera<br><span>Auto</span></h1>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Inventory Stock</h2>
+        <button class="add-btn">Add New Item</button>
+        <table>
+            <tr>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Engine Oil 5W-30</td>
+                <td>Oil & Fluids</td>
+                <td>45</td>
+                <td>UGX 45,000</td>
+                <td><span class="stock-ok">In Stock</span></td>
+            </tr>
+            <tr>
+                <td>Oil Filter Toyota</td>
+                <td>Filters</td>
+                <td>8</td>
+                <td>UGX 25,000</td>
+                <td><span class="stock-low">Low Stock</span></td>
+            </tr>
+            <tr>
+                <td>Brake Pads Set</td>
+                <td>Brakes</td>
+                <td>22</td>
+                <td>UGX 120,000</td>
+                <td><span class="stock-ok">In Stock</span></td>
+            </tr>
+            <tr>
+                <td>Car Battery 12V</td>
+                <td>Electrical</td>
+                <td>15</td>
+                <td>UGX 280,000</td>
+                <td><span class="stock-ok">In Stock</span></td>
+            </tr>
+            <tr>
+                <td>Tire 185/65 R15</td>
+                <td>Tires</td>
+                <td>4</td>
+                <td>UGX 180,000</td>
+                <td><span class="stock-low">Low Stock</span></td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="Eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - Oyera Auto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(https://www.autoblog.com/.image/NzowMDAwMDAwMDAwOTA4MzA4/image.jpg?profile=w828&ar=4-3);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0
+        }
+
+        header {
+            background-color: cadetblue;
+            padding: 20px 0;
+            margin-left: 260px
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            margin: 0;
+            line-height: 1.1
+        }
+
+        .logo span {
+            color: lightblue;
+            font-size: 18px;
+            font-weight: normal
+        }
+
+        :root {
+            --sidebar-bg: #f8fafc;
+            --sidebar-text: #64748b;
+            --sidebar-active-bg: #f0fdfc;
+            --sidebar-active-text: #16a34a;
+            --sidebar-border: #e2e8f0;
+            --sidebar-section: #94a3b8
+        }
+
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: var(--sidebar-bg);
+            border-right: 3px solid var(--sidebar-border);
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            z-index: 1000
+        }
+
+        .sidebar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .sidebar-brand .logo {
+            color: var(--sidebar-active-text);
+            font-size: 1.8rem
+        }
+
+        .sidebar-section {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--sidebar-section);
+            letter-spacing: 1px;
+            margin: 1.5rem 0 .5rem .5rem
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: .75rem 1rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all .2s;
+            margin-bottom: 4px
+        }
+
+        .sidebar .nav-link:hover {
+            background: blanchedalmond;
+            color: #0f172a
+        }
+
+        .sidebar .nav-link.active {
+            background: var(--sidebar-active-bg);
+            color: var;
+            --sidebar-active-text;
+            font-weight: 600
+        }
+
+        .sidebar .badge {
+            margin-left: auto;
+            background: #16a34a;
+            color: white;
+            font-size: .75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0;
+            padding: 40px 30px;
+            margin-left: 280px
+        }
+
+        h2 {
+            color: darkslateblue;
+            margin-bottom: 20px;
+            font-size: 28px
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, .95);
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .15)
+        }
+
+        .form-group {
+            margin-bottom: 20px
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db
+        }
+
+        .add-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 8px 20px rgba(52, 152, 219, .4);
+            transition: all .3s ease
+        }
+
+        .add-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-4px)
+        }
+
+        footer {
+            background-color: cadetblue;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            margin-left: 260px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand"><span class="logo">◎</span> Oyera</div>
+        <div class="sidebar-section">MENU</div>
+        <ul class="sidebar-nav">
+            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="inventory.html" class="nav-link">Inventory</a></li>
+            <li><a href="technicians.html" class="nav-link">Technicians</a></li>
+            <li><a href="booking.html" class="nav-link active">Booking</a></li>
+        </ul>
+        <div class="sidebar-section">GENERAL</div>
+        <ul class="sidebar-nav">
+            <li><a href="settings.html" class="nav-link">⚙️ Settings</a></li>
+            <li><a href="help.html" class="nav-link">❓ Help</a></li>
+            <li><a href="logout.html" class="nav-link">🚪 Logout</a></li>
+        </ul>
+    </div>
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Oyera<br><span>Auto</span></h1>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Book a Service</h2>
+        <div class="form-card">
+            <form>
+                <div class="form-group"><label>Customer Name</label><input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+256 7xx xxx"
+                        required></div>
+                <div class="form-group"><label>Car Plate</label><input type="text" placeholder="UAX 123A" required>
+                </div>
+                <div class="form-group"><label>Service Type</label>
+                    <select required>
+                        <option value="">Select service</option>
+                        <option>Oil Change</option>
+                        <option>Engine Tune-Up</option>
+                        <option>Brake Service</option>
+                        <option>Tire Replacement</option>
+                        <option>Battery Replacement</option>
+                        <option>Full Service</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Preferred Date</label><input type="date" required></div>
+                <div class="form-group"><label>Notes</label><textarea rows="4"
+                        placeholder="Describe the issue..."></textarea></div>
+                <button type="submit" class="add-btn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

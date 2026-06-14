@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-D">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technicians - Oyera Auto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(https://www.autoblog.com/.image/NzowMDAwMDAwMDAwOTA4MzA4/image.jpg?profile=w828&ar=4-3);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0
+        }
+
+        header {
+            background-color: cadetblue;
+            padding: 20px 0;
+            margin-left: 260px
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            margin: 0;
+            line-height: 1.1
+        }
+
+        .logo span {
+            color: lightblue;
+            font-size: 18px
+        }
+
+        :root {
+            --sidebar-bg: #f8fafc;
+            --sidebar-text: #64748b;
+            --sidebar-active-bg: #f0fdfc;
+            --sidebar-active-text: #16a34a;
+            --sidebar-border: #e2e8f0;
+            --sidebar-section: #94a3b8
+        }
+
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: var(--sidebar-bg);
+            border-right: 3px solid var(--sidebar-border);
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000
+        }
+
+        .sidebar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .sidebar-brand .logo {
+            color: var(--sidebar-active-text);
+            font-size: 1.8rem
+        }
+
+        .sidebar-section {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--sidebar-section);
+            letter-spacing: 1px;
+            margin: 1.5rem 0 .5rem .5rem
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: .75rem 1rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all .2s;
+            margin-bottom: 4px
+        }
+
+        .sidebar .nav-link:hover {
+            background: blanchedalmond;
+            color: #0f172a
+        }
+
+        .sidebar .nav-link.active {
+            background: var(--sidebar-active-bg);
+            color: var(--sidebar-active-text);
+            font-weight: 600
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0;
+            padding: 40px 30px;
+            margin-left: 280px
+        }
+
+        h2 {
+            color: darkslateblue;
+            margin-bottom: 25px;
+            font-size: 28px
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, .95);
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+            transition: all .3s
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .25)
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #3498db;
+            color: white;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px
+        }
+
+        .tech-card h3 {
+            margin: 0 0 5px;
+            color: #0f172a
+        }
+
+        .tech-card p {
+            color: #64748b;
+            margin: 5px 0
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px
+        }
+
+        .available {
+            background: #dcfce7;
+            color: #16a34a
+        }
+
+        .busy {
+            background: #fef3c7;
+            color: #d97706
+        }
+
+        footer {
+            background-color: cadetblue;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            margin-left: 260px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand"><span class="logo">◎</span> Oyera</div>
+        <div class="sidebar-section">MENU</div>
+        <ul class="sidebar-nav">
+            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="inventory.html" class="nav-link">Inventory</a></li>
+            <li><a href="technicians.html" class="nav-link active">Technicians</a></li>
+            <li><a href="booking.html" class="nav-link">Booking</a></li>
+        </ul>
+        <div class="sidebar-section">GENERAL</div>
+        <ul class="sidebar-nav">
+            <li><a href="settings.html" class="nav-link">⚙️ Settings</a></li>
+            <li><a href="help.html" class="nav-link">❓ Help</a></li>
+            <li><a href="logout.html" class="nav-link">🚪 Logout</a></li>
+        </ul>
+    </div>
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Oyera<br><span>Auto</span></h1>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Our Technicians</h2>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="avatar">AJ</div>
+                <h3>Alex Johnson</h3>
+                <p>Engine Specialist</p>
+                <p>5 yrs experience</p><span class="status-badge available">Available</span>
+            </div>
+            <div class="tech-card">
+                <div class="avatar">MS</div>
+                <h3>Mary Ssemanda</h3>
+                <p>Electrical</p>
+                <p>7 yrs experience</p><span class="status-badge busy">On Job</span>
+            </div>
+            <div class="tech-card">
+                <div class="avatar">PT</div>
+                <h3>Peter Tusiime</h3>
+                <p>Brakes & Suspension</p>
+                <p>4 yrs experience</p><span class="status-badge available">Available</span>
+            </div>
+            <div class="tech-card">
+                <div class="avatar">DK</div>
+                <h3>David Kato</h3>
+                <p>General Mechanic</p>
+                <p>6 yrs experience</p><span class="status-badge available">Available</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

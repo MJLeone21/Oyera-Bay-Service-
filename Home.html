@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Oyera Auto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* background-image: url(https://www.autoblog.com/.image/NzowMDAwMDAwMDAwOTA4MzA4/image.jpg?profile=w828&ar=4-3); */
+            background-size: cover;
+            background-color:#475569;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0
+        }
+
+        header {
+            background-color: cadetblue;
+            padding: 20px 0;
+            /* margin-left: 260px */
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            margin: 0;
+            line-height: 1.1
+        }
+
+        .logo span {
+            color: lightblue;
+            font-size: 18px
+        }
+
+        :root {
+            --sidebar-bg: #f8fafc;
+            --sidebar-text: #64748b;
+            --sidebar-active-bg: #f0fdfc;
+            --sidebar-active-text: #16a34a;
+            --sidebar-border: #e2e8f0;
+            --sidebar-section: #94a3b8
+        }
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e293b;
+  color: #fff;
+  padding: 0 24px;
+  height: 64px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-brand .logo {
+  font-size: 1.5rem;
+}
+
+.navbar-nav, .navbar-general {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.navbar-nav li a, .navbar-general li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.navbar-nav li a:hover, .navbar-general li a:hover {
+  background: #334155;
+  color: #fff;
+}
+
+.navbar-nav li a.active {
+  background: #3b82f6;
+  color: #fff;
+}
+.navbar-nav .nav-link{
+
+}
+
+/* Mobile: stack links */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px;
+    gap: 12px;
+  }
+  .navbar-nav, .navbar-general {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+        /* .sidebar {
+            width: 260px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: var(--sidebar-bg);
+            border-right: 3px solid var(--sidebar-border);
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000
+        }
+
+        .sidebar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .sidebar-brand .logo {
+            color: var(--sidebar-active-text);
+            font-size: 1.8rem
+        }
+
+        .sidebar-section {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--sidebar-section);
+            letter-spacing: 1px;
+            margin: 1.5rem 0 .5rem .5rem
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        .sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: .75rem 1rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all .2s;
+            margin-bottom: 4px
+        }
+
+        .sidebar .nav-link:hover {
+            background: blanchedalmond;
+            color: #0f172a
+        }
+
+        .sidebar .nav-link.active {
+            background: var(--sidebar-active-bg);
+            color: var(--sidebar-active-text);
+            font-weight: 600
+        } */
+
+        .container {
+            /* background-image: url('https://clipart-library.com/2024/repair-shops/repair-shops-1.jpg'); */
+            max-width: 1000px;
+            margin: 0;
+            padding: 60px 30px;
+            margin-left: 280px;
+            text-align: center
+        }
+        /* .card-1{
+            background-color: #64748b;
+        }
+        .card-2{
+            background-color: aqua;
+        }
+        .card-3{
+            background-color: beige;
+        } */
+
+        .hero {
+            background: url('https://clipart-library.com/2024/repair-shops/repair-shops-1.jpg');
+            padding: 60px 40px;
+            border-radius: 22px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+            margin-bottom: 40px
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: darkslateblue;
+            margin: 0 0 20px
+        }
+
+        .hero p {
+            font-size: 20px;
+            color:beige;
+            line-height: 1.6;
+            margin-bottom: 30px
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(52, 152, 219, .4);
+            transition: all .3s
+        }
+
+        .cta-btn:hover {
+            background: #2980b9;
+            transform: translateY(-4px)
+        }
+
+        .features {
+            display: flex;
+            gap: 25px;
+            margin-top: 40px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .feature-box {
+            background:lightsalmon;
+            padding: 25px;
+            border-radius: 18px;
+            width: 220px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1)
+        }
+       /* .feature-box.box-1{
+            background: url('')center/cover no-repeat;
+        }
+        .feature-box.box-2{
+            background: url('https://assets.setmore.com/website/v2/images/industry-pages/automotive/car-mechanic-lady-2x.webp')center/cover no-repeat;
+        }
+        .feature-box.box-3{
+            background: url('')center/cover no-repeat;
+        }*/
+
+        .feature-box h3 {
+            color: #3498db;
+            margin-top: 0
+        }
+
+        .auth-section {
+            background: rgba(255, 255, 255, .95);
+            padding: 40px;
+            border-radius: 22px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+            max-width: 500px;
+            margin: 40px auto 0
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all .2s
+        }
+
+        .tab-btn.active {
+            color: #3498db;
+            border-bottom-color: #3498db
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 18px
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all .3s
+        }
+
+        .submit-btn:hover {
+            background: #219a52;
+            transform: translateY(-2px)
+        }
+
+        .hidden {
+            display: none
+        }
+
+        footer {
+            background-color: cadetblue;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            /* margin-left: 260px */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="sidebar">
+        <div class="sidebar-brand"><span class="logo">◎</span> Oyera</div>
+        <div class="sidebar-section">MENU</div>
+        <ul class="sidebar-nav">
+            <li><a href="home.html" class="nav-link active">Home</a></li>
+            <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="inventory.html" class="nav-link">Inventory</a></li>
+            <li><a href="technicians.html" class="nav-link">Technicians</a></li>
+            <li><a href="booking.html" class="nav-link">Booking</a></li>
+        </ul>
+        <div class="sidebar-section">GENERAL</div>
+        <ul class="sidebar-nav">
+            <li><a href="settings.html" class="nav-link">⚙️ Settings</a></li>
+            <li><a href="help.html" class="nav-link">❓ Help</a></li>
+            <li><a href="logout.html" class="nav-link">🚪 Logout</a></li>
+        </ul>
+    </div>  -->
+    <div>
+       
+    </div>
+
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Oyera<br><span>Auto</span></h1>
+       </div>
+       <div>
+        <nav class="navbar">
+  <div class="navbar-brand"><span class="logo">◎</span> Oyera</div>
+  
+  <ul class="navbar-nav">
+    <li><a href="home.html" class="nav-link active">Home</a></li>
+    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+    <li><a href="inventory.html" class="nav-link">Inventory</a></li>
+    <li><a href="technicians.html" class="nav-link">Technicians</a></li>
+    <li><a href="booking.html" class="nav-link">Booking</a></li>
+  </ul>
+
+  <ul class="navbar-general">
+    <li><a href="settings.html" class="nav-link">⚙️ Settings</a></li>
+    <li><a href="help.html" class="nav-link">❓ Help</a></li>
+    <li><a href="logout.html" class="nav-link">🚪 Logout</a></li>
+  </ul>
+</nav>
+</div>
+
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Welcome to Oyera Auto</h1>
+            <p>Your trusted service bay in Kampala. We keep your car running smooth with expert technicians, genuine
+                parts, and transparent pricing.</p>
+            <!-- <a href="booking.html" class="cta-btn">Book Service Now</a> -->
+            <div class="features">
+                <div class="feature-box">
+                    <h3>🚗 Fast Service</h3>
+                    <p>Most jobs done same day</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🔧 Certified Techs</h3>
+                    <p>9 experienced mechanics</p>
+                </div>
+                <div class="feature-box">
+                    <h3>📦 Genuine Parts</h3>
+                    <p>150+ items in stock</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-section">
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showTab('login')">Login</button>
+                <button class="tab-btn" onclick="showTab('signup')">Create Account</button>
+            </div>
+
+            <form id="login" class="auth-form">
+                <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group"><label>Password</label><input type="password" placeholder="Enter password"
+                        required></div>
+                <!-- <button <a href="dashboard.html"></a> type="submit" class="submit-btn">Login to Dashboard</button> -->
+                 <a href="dashboard.html" class="cta-btn">Login to Dashboard</a>  
+            </form>
+
+            <form id="signup" class="auth-form hidden">
+                <div class="form-group"><label>Full Name</label><input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group"><label>Phone</label><input type="tel" placeholder="+256 7xx xxx" required></div>
+                <div class="form-group"><label>Password</label><input type="password" placeholder="Create password"
+                        required></div>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showTab(tab) {
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tab).classList.remove('hidden');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
