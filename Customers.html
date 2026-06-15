@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory - Oyera Auto</title>
+    <title>Customer Registration - Oyera Auto</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,6 +13,7 @@
             background-position: center;
             background-attachment: fixed;
             min-height: 100vh;
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0
         }
@@ -41,13 +42,14 @@
 
         .logo span {
             color: lightblue;
+            font-weight: normal;
             font-size: 18px
         }
 
         :root {
-            --sidebar-bg: #f8fafc;
+            --sidebar-bg: var(--sidebar-active-bg);
             --sidebar-text: #64748b;
-            --sidebar-active-bg: #f0fdfc;
+            --sidebar-active-bg: #f0fdf4;
             --sidebar-active-text: #16a34a;
             --sidebar-border: #e2e8f0;
             --sidebar-section: #94a3b8
@@ -64,6 +66,7 @@
             padding: 1.5rem 1rem;
             display: flex;
             flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             z-index: 1000
         }
 
@@ -120,8 +123,18 @@
             font-weight: 600
         }
 
+        .sidebar .badge {
+            margin-left: auto;
+            background: #16a34a;
+            color: white;
+            font-size: .75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0;
             padding: 40px 30px;
             margin-left: 280px
@@ -130,48 +143,62 @@
         h2 {
             color: darkslateblue;
             margin-bottom: 20px;
+            margin-top: 30px;
             font-size: 28px
         }
 
-        table {
+        .form-card {
+            background: rgba(255, 255, 255, .95);
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .15)
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .form-group {
+            margin-bottom: 20px
+        }
+
+        .form-group.full {
+            grid-column: 1/-1
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 16px
+        }
+
+        input,
+        select,
+        textarea {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 8px
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: border .2s
         }
 
-        th {
-            text-align: left;
-            padding: 15px;
-            background-color: #3498db;
-            color: white;
-            font-size: 18px;
-            border-radius: 8px 8px 0 0
-        }
-
-        td {
-            padding: 15px;
-            background-color: rgba(255, 255, 255, .9);
-            color: #2b2b4a;
-            border-radius: 8px
-        }
-
-        tr:nth-child(even) td {
-            background-color: #f5f5f5
-        }
-
-        .stock-low {
-            color: crimson;
-            font-weight: 600
-        }
-
-        .stock-ok {
-            color: #27ae60;
-            font-weight: 600
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db
         }
 
         .add-btn {
             display: inline-block;
-            margin: 30px 0;
+            margin-top: 20px;
             padding: 15px 35px;
             background-color: #3498db;
             color: white;
@@ -180,11 +207,12 @@
             cursor: pointer;
             font-size: 18px;
             box-shadow: 0 8px 20px rgba(52, 152, 219, .4);
-            transition: all .3s
+            transition: all .3s ease
         }
 
         .add-btn:hover {
             background-color: #2980b9;
+            box-shadow: 0 12px 30px rgba(52, 152, 219, .6);
             transform: translateY(-4px)
         }
 
@@ -196,6 +224,12 @@
             margin-top: 40px;
             margin-left: 260px
         }
+
+        @media(max-width:768px) {
+            .form-grid {
+                grid-template-columns: 1fr
+            }
+        }
     </style>
 </head>
 
@@ -204,73 +238,54 @@
         <div class="sidebar-brand"><span class="logo">◎</span> Oyera</div>
         <div class="sidebar-section">MENU</div>
         <ul class="sidebar-nav">
-            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="Home.html" class="nav-link">Home<span class="badge">3</span></a></li>
             <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
-            <li><a href="inventory.html" class="nav-link active">Inventory</a></li>
-            <li><a href="technicians.html" class="nav-link">Technicians</a></li>
-            <li><a href="Customers.html" class="nav-link">Customers</a></li>
-            <li><a href="booking.html" class="nav-link">Booking</a></li>
+            <li><a href="Inventory.html" class="nav-link">Inventory</a></li>
+            <li><a href="Technicians.html" class="nav-link">Technicians</a></li>
+            <li><a href="Booking.html" class="nav-link">Booking</a></li>
+            <li><a href="customer-registration.html" class="nav-link active">Customers</a></li>
         </ul>
         <div class="sidebar-section">GENERAL</div>
         <ul class="sidebar-nav">
-            <li><a href="settings.html" class="nav-link">⚙️ Settings</a></li>
-            <li><a href="help.html" class="nav-link">❓ Help</a></li>
-            <li><a href="logout.html" class="nav-link">🚪 Logout</a></li>
+            <li><a href="Settings.html" class="nav-link">⚙️ Settings</a></li>
+            <li><a href="Help.html" class="nav-link">❓ Help</a></li>
+            <li><a href="Logout.html" class="nav-link">🚪 Logout</a></li>
         </ul>
     </div>
+
     <header>
         <div class="header-container">
             <h1 class="logo">Oyera<br><span>Auto</span></h1>
         </div>
     </header>
+
     <div class="container">
-        <h2>Inventory Stock</h2>
-        <button class="add-btn">Add New Item</button>
-        <table>
-            <tr>
-                <th>Item Name</th>
-                <th>Category</th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>Engine Oil 5W-30</td>
-                <td>Oil & Fluids</td>
-                <td>45</td>
-                <td>UGX 45,000</td>
-                <td><span class="stock-ok">In Stock</span></td>
-            </tr>
-            <tr>
-                <td>Oil Filter Toyota</td>
-                <td>Filters</td>
-                <td>8</td>
-                <td>UGX 25,000</td>
-                <td><span class="stock-low">Low Stock</span></td>
-            </tr>
-            <tr>
-                <td>Brake Pads Set</td>
-                <td>Brakes</td>
-                <td>22</td>
-                <td>UGX 120,000</td>
-                <td><span class="stock-ok">In Stock</span></td>
-            </tr>
-            <tr>
-                <td>Car Battery 12V</td>
-                <td>Electrical</td>
-                <td>15</td>
-                <td>UGX 280,000</td>
-                <td><span class="stock-ok">In Stock</span></td>
-            </tr>
-            <tr>
-                <td>Tire 185/65 R15</td>
-                <td>Tires</td>
-                <td>4</td>
-                <td>UGX 180,000</td>
-                <td><span class="stock-low">Low Stock</span></td>
-            </tr>
-        </table>
+        <h2>Register New Customer</h2>
+        <div class="form-card">
+            <form>
+                <div class="form-grid">
+                    <div class="form-group"><label>First Name</label><input type="text" placeholder="Jonathan" required>
+                    </div>
+                    <div class="form-group"><label>Last Name</label><input type="text" placeholder="Leone" required>
+                    </div>
+                    <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+256 700 123 456"
+                            required></div>
+                    <div class="form-group"><label>Email</label><input type="email" placeholder="customer@email.com">
+                    </div>
+                    <div class="form-group"><label>Car Plate</label><input type="text" placeholder="UBJ 123A" required>
+                    </div>
+                    <div class="form-group"><label>Car Model</label><input type="text"
+                            placeholder="Toyota Corolla 2018"></div>
+                    <div class="form-group full"><label>Address</label><input type="text"
+                            placeholder="Masajja, Kampala District"></div>
+                    <div class="form-group full"><label>Notes</label><textarea rows="3"
+                            placeholder="Any special notes about customer or vehicle..."></textarea></div>
+                </div>
+                <button type="submit" class="add-btn">Save Customer</button>
+            </form>
+        </div>
     </div>
+
     <footer>
         <p>&copy; 2026 Oyera Auto Service Bay. All rights reserved.</p>
     </footer>
